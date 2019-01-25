@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/rent/submit}" method="POST">
+
+    customerNumber:<br>
+    <input type="text" name="customerNumber" value="customerNumber">
+    <br>
+    Car type:<br>
+    <input type="text" name="carType" value="carType">
+    <br>
+    regNumber:<br>
+    <input type="text" name="regNumber" value="regNumber">
+    <br>
+    dateBooking:<br>
+    <input type="text" name="dateBooking" value="dateBooking">
+    <br>
+    kmCountBefore:<br>
+    <input type="text" name="kmCountBefore" value="kmCountBefore">
+
+
+
+    <br><br>
+    <input type="submit" name="submit" value="submit">
+</form>
+</body>
+</html>

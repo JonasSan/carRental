@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+    <title>Cardoor - Car Rental HTML Template</title>
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!--=== Vegas Min CSS ===-->
+    <link href="assets/css/plugins/vegas.min.css" rel="stylesheet">
+    <!--=== Slicknav CSS ===-->
+    <link href="assets/css/plugins/slicknav.min.css" rel="stylesheet">
+    <!--=== Magnific Popup CSS ===-->
+    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet">
+    <!--=== Owl Carousel CSS ===-->
+    <link href="assets/css/plugins/owl.carousel.min.css" rel="stylesheet">
+    <!--=== Gijgo CSS ===-->
+    <link href="assets/css/plugins/gijgo.css" rel="stylesheet">
+    <!--=== FontAwesome CSS ===-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <!--=== Theme Reset CSS ===-->
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="style.css" rel="stylesheet">
+    <!--=== Responsive CSS ===-->
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="loader-active">
+
+<!--== Preloader Area Start ==-->
+<div class="preloader">
+    <div class="preloader-spinner">
+        <div class="loader-content">
+            <img src="assets/img/preloader.gif" alt="JSOFT">
+        </div>
+    </div>
+</div>
+<!--== Preloader Area End ==-->
+
+<!--== Header Area Start ==-->
+<header id="header-area" class="fixed-top">
+
+    <!--== Header Bottom Start ==-->
+    <div id="header-bottom">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                    <a href="/index" class="logo">
+                        <img src="assets/img/logo.png" alt="JSOFT">
+                    </a>
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+                <div class="col-lg-8 d-none d-xl-block">
+                    <nav class="mainmenu alignright">
+                        <ul>
+                            <li class="active"><a href="/index">Home</a>
+                            </li>
+                            <li><a href="/booking">My bookings</a></li>
+                            <li><a href="/return">Return Car</a></li>
+                            <!--->
+
+                            <li><a href="index.html">Pages</a>
+                                <ul>
+                                    <li><a href="package.html">Pricing</a></li>
+                                    <li><a href="driver.html">Driver</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="help-desk.html">Help Desk</a></li>
+                                    <li><a href="login.html">Log In</a></li>
+                                    <li><a href="register.html">Register</a></li>
+                                    <li><a href="404.html">404</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Blog</a>
+                                <ul>
+                                    <li><a href="article.html">Blog Page</a></li>
+                                    <li><a href="article-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Bottom End ==-->
+</header>
+<!--== Header Area End ==-->
+
+<!--== SlideshowBg Area Start ==-->
+<section id="slideslow-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="slideshowcontent">
+                    <div class="display-table">
+                        <div class="display-table-cell">
+                            <h1>BOOK A CAR TODAY!</h1>
+                            <p>FOR AS LOW AS $40 A DAY</p>
+
+                            <div class="book-ur-car">
+                                <form th:action="@{/index/submit}" method="POST">
+
+                                    <div class="pick-date bookinput-item">
+                                        <input type="text" name="customerNumber" placeholder="Customer nr">
+                                    </div>
+
+                                    <div class="pick-location bookinput-item">
+                                        <select class="custom-select" name="carType">
+                                            <option selected>Pick a car</option>
+                                            <option value="SmallCar">Small car</option>
+                                            <option value="Van">Van</option>
+                                            <option value="Minibus">Minibus</option>
+                                        </select>
+                                    </div>
+
+                                    <!--<div class="pick-date bookinput-item">-->
+                                    <!--<input type="text" id="carType" name="carType" placeholder="carType" />-->
+                                    <!--</div>-->
+                                    <div class="pick-date bookinput-item">
+                                        <input type="text" name="regNumber" placeholder="Registration nr">
+                                    </div>
+
+                                    <div class="pick-date bookinput-item">
+                                    <input type="datetime-local" id="startDate2" name="dateBooking" placeholder="date" />
+                                    </div>
+
+                                    <!--<div class="pick-date bookinput-item" id="startDate2" name="dateBooking">-->
+                                    <!--</div>-->
+
+                                    <div class="pick-date bookinput-item">
+                                        <input type="text" name="kmCountBefore" placeholder="Km start">
+                                    </div>
+
+
+                                    <div class="c">
+                                        <input type="submit" name="submit" value="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== SlideshowBg Area End ==-->
+
+
+</div>
+</div>
+</section>
+<!--== Choose Car Area End ==-->
+
+<!--== Pricing Area Start ==-->
+<section id="pricing-area" class="section-padding overlay">
+    <div class="container">
+        <div class="row">
+            <!-- Section Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>Only quality for clients</h2>
+                    <span class="title-line"><i class="fa fa-car"></i></span>
+                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
+                </div>
+            </div>
+            <!-- Section Title End -->
+        </div>
+
+        <!-- Pricing Table Conatent Start -->
+        <div class="row">
+            <!-- Single Pricing Table -->
+            <div class="col-lg-4 col-md-6 text-center">
+                <div class="single-pricing-table">
+                    <h3>Small car</h3>
+                    <h2>$ 40.00</h2>
+                    <h5>PER DAY</h5>
+                    <br>
+                    <br>
+                    <br>
+
+                    <!--<ul class="package-list">-->
+                    <!--<li>FREE VEHICLE DELIVERY</li>-->
+                    <!--<li>WEDDINGS CELEBRATIONS</li>-->
+                    <!--<li>FULL INSURANCE INCLUDED</li>-->
+                    <!--<li>TRANSPORT ABROAD</li>-->
+                    <!--<li>ALL INCLUSIVE MINI BAR</li>-->
+                    <!--<li>CHAUFFER INCLUDED IN PRICE</li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            <!-- Single Pricing Table -->
+
+            <!-- Single Pricing Table -->
+            <div class="col-lg-4 col-md-6 text-center">
+                <div class="single-pricing-table">
+                    <h3>Van</h3>
+                    <h2>$ 48.00 </h2>
+                    <h5>PER DAY</h5>
+                    <h5>+ $ 1.00/ extra km</h5>
+                    <br> <br>
+
+
+                    <!--<ul class="package-list">-->
+                    <!--<li>FREE VEHICLE DELIVERY</li>-->
+                    <!--<li>OTHER CELEBRATIONS</li>-->
+                    <!--<li>FULL INSURANCE</li>-->
+                    <!--<li>TRANSPORT ABROAD</li>-->
+                    <!--<li>MINI BAR</li>-->
+                    <!--<li>INCLUDED IN PRICE</li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            <!-- Single Pricing Table -->
+
+            <!-- Single Pricing Table -->
+            <div class="col-lg-4 col-md-6 text-center">
+                <div class="single-pricing-table">
+                    <h3>Mini bus</h3>
+                    <h2>$ 68.00</h2>
+                    <h5>PER DAY</h5>
+                    <h5>+ $ 1.50/ extra km</h5>
+                    <br> <br>
+
+                    <!--<ul class="package-list">-->
+                    <!--<li>DELIVERY AT AIRPORT</li>-->
+                    <!--<li>WEDDINGS AND OTHER</li>-->
+                    <!--<li>FULL INCLUDED</li>-->
+                    <!--<li>TRANSPORT ABROAD</li>-->
+                    <!--<li>ALL MINI BAR</li>-->
+                    <!--<li>CHAUFFER PRICE</li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            <!-- Single Pricing Table -->
+        </div>
+        <!-- Pricing Table Conatent End -->
+    </div>
+</section>
+<!--== Pricing Area End ==-->
+
+
+<!--== Footer Area Start ==-->
+<section id="footer-area">
+
+    <!-- Footer Bottom Start -->
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                            aria-hidden="true"></i> by <a
+                                href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom End -->
+</section>
+<!--== Footer Area End ==-->
+
+<!--== Scroll Top Area Start ==-->
+<div class="scroll-top">
+    <img src="assets/img/scroll-top.png" alt="JSOFT">
+</div>
+<!--== Scroll Top Area End ==-->
+
+<!--=======================Javascript============================-->
+<!--=== Jquery Min Js ===-->
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<!--=== Jquery Migrate Min Js ===-->
+<script src="assets/js/jquery-migrate.min.js"></script>
+<!--=== Popper Min Js ===-->
+<script src="assets/js/popper.min.js"></script>
+<!--=== Bootstrap Min Js ===-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!--=== Gijgo Min Js ===-->
+<script src="assets/js/plugins/gijgo.js"></script>
+<!--=== Vegas Min Js ===-->
+<script src="assets/js/plugins/vegas.min.js"></script>
+<!--=== Isotope Min Js ===-->
+<script src="assets/js/plugins/isotope.min.js"></script>
+<!--=== Owl Caousel Min Js ===-->
+<script src="assets/js/plugins/owl.carousel.min.js"></script>
+<!--=== Waypoint Min Js ===-->
+<script src="assets/js/plugins/waypoints.min.js"></script>
+<!--=== CounTotop Min Js ===-->
+<script src="assets/js/plugins/counterup.min.js"></script>
+<!--=== YtPlayer Min Js ===-->
+<script src="assets/js/plugins/mb.YTPlayer.js"></script>
+<!--=== Magnific Popup Min Js ===-->
+<script src="assets/js/plugins/magnific-popup.min.js"></script>
+<!--=== Slicknav Min Js ===-->
+<script src="assets/js/plugins/slicknav.min.js"></script>
+
+<!--=== Mian Js ===-->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
