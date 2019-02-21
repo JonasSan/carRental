@@ -2,6 +2,8 @@ package com.rental.carRental.database;
 
 
 import com.rental.carRental.domain.Order;
+import com.rental.carRental.domain.ReturnOrder;
+import com.rental.carRental.repository.ReturnOrderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +17,14 @@ public class DatabaseLoader implements CommandLineRunner {
 
 
     private OrderRepository orderRepository;
+    private ReturnOrderRepository returnOrderRepository;
 
 
-    public DatabaseLoader(OrderRepository orderRepository) {
+    public DatabaseLoader(OrderRepository orderRepository, ReturnOrderRepository returnOrderRepository) {
         this.orderRepository=orderRepository;
+        this.returnOrderRepository=returnOrderRepository;
     }
+
 
 
     @Override
@@ -28,6 +33,11 @@ public class DatabaseLoader implements CommandLineRunner {
         System.out.println("You are here");
 
         this.orderRepository.deleteAll();
+        this.returnOrderRepository.deleteAll();
+
+        ReturnOrder returnOrder= new ReturnOrder("rirspier", "2938392", 897);
+        this.returnOrderRepository.save(returnOrder);
+        System.out.println(returnOrder.toString());
 
         Order order = new Order(4444,"smallCar","agh789", "2019-01-25T13:29",50000);
         this.orderRepository.save(order);
@@ -41,9 +51,7 @@ public class DatabaseLoader implements CommandLineRunner {
         System.out.println("Test: find order by Number");
         System.out.println("--------------------------------");
         System.out.println(orderRepository.findByCustomerNumber(3453));
-
-
-
+        System.out.println(returnOrderRepository.findByCompareId("rirspier"));
 
 
     }

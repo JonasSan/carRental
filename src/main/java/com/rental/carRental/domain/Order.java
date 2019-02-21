@@ -23,6 +23,7 @@ public class Order {
     @Id
     private String id;   //primary key
 
+
     @NonNull
     @Size(min = 5, max = 10)
     private int customerNumber;
@@ -35,17 +36,13 @@ public class Order {
 
     //    @DateTimeFormat(pattern = "yyyy-MM-ddThh:mm")
     private String dateBooking;
-    private String dateReturn;
 
     private LocalDate before;
-    private LocalDate after;
-
 
     private long days;
 
-
     private int kmCountBefore;
-    private int kmCountAfter;
+
     private int km;
     private int price;
 
@@ -57,6 +54,7 @@ public class Order {
         this.dateBooking = dateBooking;
         this.kmCountBefore = kmCountBefore;
     }
+
 
     public long getDays(String dateBooking, String dateReturn) {
         LocalDate before = LocalDate.parse(dateBooking);
@@ -117,13 +115,6 @@ public class Order {
         this.dateBooking = dateBooking;
     }
 
-    public String getDateReturn() {
-        return dateReturn;
-    }
-
-    public void setDateReturn(String dateReturn) {
-        this.dateReturn = dateReturn;
-    }
 
     public LocalDate getBefore() {
 
@@ -134,13 +125,7 @@ public class Order {
         this.before = before;
     }
 
-    public LocalDate getAfter() {
-        return after;
-    }
 
-    public void setAfter(LocalDate after) {
-        this.after = after;
-    }
 
     public int getKmCountBefore() {
         return kmCountBefore;
@@ -150,13 +135,7 @@ public class Order {
         this.kmCountBefore = kmCountBefore;
     }
 
-    public int getKmCountAfter() {
-        return kmCountAfter;
-    }
 
-    public void setKmCountAfter(int kmCountAfter) {
-        this.kmCountAfter = kmCountAfter;
-    }
 
     public int getKm() {
         return km;
@@ -184,5 +163,11 @@ public class Order {
                 ", dateBooking=" + dateBooking +
                 ", kmCountBefore=" + kmCountBefore +
                 '}';
+    }
+
+
+
+    public long getDays() {
+        return days;
     }
 }

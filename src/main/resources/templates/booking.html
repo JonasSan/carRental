@@ -37,9 +37,9 @@
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-        function onclick() {
+        <!--function delete() {-->
 
-        }
+        <!--}-->
 
 
     </script>
@@ -98,39 +98,15 @@ width : 60px;
                 <!--== Main Menu Start ==-->
                 <div class="col-lg-8 d-none d-xl-block">
                     <nav class="mainmenu alignright">
-                        <ul>
-                            <li class="active"><a href="/index">Home</a>
-                            </li>
-                            <li><a href="/booking">My bookings</a></li>
-                            <li><a href="services.html">services</a></li>
-                            <li><a href="#">Cars</a>
-                                <ul>
-                                    <li><a href="car-left-sidebar.html">Car Left Sidebar</a></li>
-                                    <li><a href="car-right-sidebar.html">Car Right Sidebar</a></li>
-                                    <li><a href="car-without-sidebar.html">Car Without Sidebar</a></li>
-                                    <li><a href="car-details.html">Car Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index.html">Pages</a>
-                                <ul>
-                                    <li><a href="package.html">Pricing</a></li>
-                                    <li><a href="driver.html">Driver</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="help-desk.html">Help Desk</a></li>
-                                    <li><a href="login.html">Log In</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="404.html">404</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Blog</a>
-                                <ul>
-                                    <li><a href="article.html">Blog Page</a></li>
-                                    <li><a href="article-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+
+                            <ul>
+                                <li class="active"><a href="/index">Home</a>
+                                </li>
+                                <li><a href="/booking">My bookings</a></li>
+                                <li><a href="/return">Return Car</a></li>
+                                <li><a href="/returned">Returns</a></li>
+                                <!--->
+                            </ul>
                     </nav>
                 </div>
                 <!--== Main Menu End ==-->
@@ -165,9 +141,14 @@ width : 60px;
                                             <td th:text="'Registration nr: ' + ${order.regNumber}"/>
                                             <td th:text="'Date of booking: ' + ${order.dateBooking}"/>
                                             <td th:text="'Km start: ' + ${order.kmCountBefore}"/>
-                                            <td><button id="delete" onclick="delete()">X</button></td>
 
+                                            <td><button id="delete" onclick="delete()">X</button></td>
                                         </tr>
+                                        <!--<tr th:each="order : ${allOrders}">-->
+                                            <!--<td th:text="'compID: ' + ${order.compareId}"/>-->
+                                            <!--<td th:text="'Date of return: ' + ${order.dateReturn}"/>-->
+                                            <!--<td th:text="'Km return: ' + ${order.kmCountAfter}"/>-->
+                                        <!--</tr>-->
                                         </tbody>
                                     </table>
                                 </td>

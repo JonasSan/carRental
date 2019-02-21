@@ -36,6 +36,39 @@
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        <!--function delete() {-->
+
+        <!--}-->
+
+var x = document.getElementById("myText").value;
+var y = document.getElementById("myText").value;
+
+
+    </script>
+
+
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#delete{
+border-radius: 50%;
+border: 2px solid #4CAF50;
+width : 60px;
+}
+
+
+</style>
 </head>
 
 <body class="loader-active">
@@ -68,6 +101,7 @@
                 <!--== Main Menu Start ==-->
                 <div class="col-lg-8 d-none d-xl-block">
                     <nav class="mainmenu alignright">
+
                         <ul>
                             <li class="active"><a href="/index">Home</a>
                             </li>
@@ -94,64 +128,51 @@
                 <div class="slideshowcontent">
                     <div class="display-table">
                         <div class="display-table-cell">
-                            <h1>BOOK A CAR TODAY!</h1>
-                            <p>FOR AS LOW AS $40 A DAY</p>
+
+                            <h2>My bookings</h2>
+                            <br>
+                            <br>
+                            <div class="content">
+
+                                <td>
+                                    <table>
+                                        <tbody>
+                                        <tr th:each="returnOrder : ${allReturnOrders}">
+                                            <!--<td th:text="'ID: ' + ${returnOrder.id}"/>-->
+                                            <td th:text="'ID: ' + ${returnOrder.compareId}"/>
+                                            <td th:text="'Return date: ' + ${returnOrder.dateReturn}"/>
+                                            <td th:text="'Km: ' + ${returnOrder.kmCountAfter}"/>
+                                            <td><button id="delete" onclick="delete()">X</button></td>
+                                        </tr>
+                                        <!--<tr th:each="order : ${allOrders}">-->
+                                        <!--<td th:text="'compID: ' + ${order.compareId}"/>-->
+                                        <!--<td th:text="'Date of return: ' + ${order.dateReturn}"/>-->
+                                        <!--<td th:text="'Km return: ' + ${order.kmCountAfter}"/>-->
+                                        <!--</tr>-->
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                                <td>
+                                    <table>
+                                        <tbody>
+                                        <tr th:each="order : ${allOrders}">
+                                            <td th:text="'ID: ' + ${order.id}"/>
+                                            <td th:text="'Customer nr: ' + ${order.customerNumber}"/>
+                                            <td th:text="'Car type: ' + ${order.carType}"/>
+                                            <td th:text="'Registration nr: ' + ${order.regNumber}"/>
+                                            <td th:text="'Date of booking: ' + ${order.dateBooking}"/>
+                                            <td th:text="'Km start: ' + ${order.kmCountBefore}"/>
+
+                                            <td><button id="del" onclick="delete()">X</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
 
 
 
-
-                            <div class="book-ur-car">
-                                <form th:action="@{/return/submit}" method="POST">
-
-                                    <div class="pick-date bookinput-item">
-                                        <input type="text" name="compareId" placeholder="ID">
-                                    </div>
-                                <!---->
-                                    <!--ta med denna!-->
-                                    <!--<div class="pick-location bookinput-item">-->
-                                        <!--<select class="form-control" th:field="${returnOrder.id}" id="dropOperator">-->
-                                            <!--<option value="0">Select Order</option>-->
-                                            <!--<option value="${returnOrder.id}"/>-->
-                                            <!--<option th:each="returnOrder : ${allReturnOrders}" th:value="${returnOrder.id}" th:text="${returnOrder.compareId}"></option>-->
-
-
-                                        <!--</select>-->
-                                    <!--</div>-->
-
-                                    <div class="pick-date bookinput-item">
-                                        <input type="datetime-local" id="dateReturn" name="dateReturn" placeholder="Return date" />
-                                    </div>
-
-                                    <!--<div class="pick-date bookinput-item" id="startDate2" name="dateBooking">-->
-                                    <!--</div>-->
-
-                                    <div class="pick-date bookinput-item">
-                                        <input type="text" name="kmCountAfter" placeholder="Km return">
-                                    </div>
-
-
-                                    <div class="c">
-                                        <input type="submit" name="submit" value="submit">
-                                    </div>
-                                </form>
                             </div>
-                            <td>
-                                <table>
-                                    <!--<tbody>-->
-                                    <!--<tr th:each="returnOrder : ${allReturnOrders}">-->
-                                        <!--<td th:text="'ID: ' + ${returnOrder.compareId}"/>-->
-                                        <!--<td th:text="'Return date: ' + ${returnOrder.dateReturn}"/>-->
-                                        <!--<td th:text="'Km: ' + ${returnOrder.kmCountAfter}"/>-->
-                                        <!--<td><button id="delete" onclick="delete()">X</button></td>-->
-                                    <!--</tr>-->
-                                    <!--&lt;!&ndash;<tr th:each="order : ${allOrders}">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<td th:text="'compID: ' + ${order.compareId}"/>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<td th:text="'Date of return: ' + ${order.dateReturn}"/>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<td th:text="'Km return: ' + ${order.kmCountAfter}"/>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-                                    <!--</tbody>-->
-                                </table>
-                            </td>
 
                         </div>
                     </div>
@@ -319,30 +340,3 @@
 </html>
 
 
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--<form action="">-->
-
-    <!--customerNumber:<br>-->
-    <!--<input type="text" name="orderID" value="orderID">-->
-    <!--<br>-->
-    <!--dateReturn:<br>-->
-    <!--<input type="text" name="dateReturn" value="dateReturn">-->
-    <!--<br>-->
-    <!--kmCountAfter:<br>-->
-    <!--<input type="text" name="kmCountAfter" value="kmCountAfter">-->
-
-    <!--<br><br>-->
-    <!--<input type="submit" name="submit" value="submit">-->
-<!--</form>-->
-
-<!--</body>-->
-<!--</html>-->
